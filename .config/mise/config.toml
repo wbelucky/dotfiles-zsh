@@ -1,0 +1,9 @@
+[tools]
+"cargo:sheldon" = "latest"
+neovim = "latest"
+node = "latest"
+"npm:devcontainer" = "latest"
+python = "3.11"
+rust = "latest"
+starship = "latest"
+tmux = "latest"
