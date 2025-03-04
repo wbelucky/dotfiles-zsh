@@ -1,0 +1,44 @@
+[core]
+	editor = nvim
+	pager = LESSCHARSET=utf-8 less
+[user]
+	email = 39439193+WBelucky@users.noreply.github.com
+	name = wbelucky
+[color]
+  ui = true
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[github]
+	user = wbelucky
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path =
+
+# https://www.grzegorowski.com/using-vim-or-neovim-nvim-as-a-git-mergetool
+[merge]
+	tool = vimfugitive
+[mergetool "vimfugitive"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[ghq]
+	vcs = git
+  root = ~/ghq
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+  templatedir = ~/.git_template
+[alias] # ref: https://zenn.dev/takuya/articles/7550d21ddd17f121602e#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%ABpush%E3%81%99%E3%82%8B
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  df = "!git hist | fzf | awk '{print $2}' | xargs -I {} git diff {}^ {}"

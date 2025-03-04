@@ -1,9 +1,11 @@
 [tools]
 "cargo:sheldon" = "latest"
+fd = "latest"
 neovim = "latest"
 node = "latest"
 "npm:devcontainer" = "latest"
 python = "3.11"
+ripgrep = "latest"
 rust = "latest"
 starship = "latest"
 tmux = "latest"
