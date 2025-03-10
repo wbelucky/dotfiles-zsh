@@ -35,7 +35,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ZSH_CONFIG="$HOME/.config/zsh"
 
-eval "$(mise activate zsh)"
+eval "$($HOME/.local/bin/mise activate zsh)"
 eval "$(sheldon source)"
 eval "$(starship init zsh)"
 

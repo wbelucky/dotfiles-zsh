@@ -5,7 +5,7 @@ set -ue
 pushd $(dirname ${BASH_SOURCE:-$0})
 
 sudo apt-get update -y
-sudo apt-get install -y bison ncurses-dev pkg-config
+sudo apt-get install -y bison ncurses-dev pkg-config libssl-dev
 
 function install_zsh() {
     if ! command -v mise >/dev/null 2>&1; then

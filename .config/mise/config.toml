@@ -9,3 +9,9 @@ ripgrep = "latest"
 rust = "latest"
 starship = "latest"
 tmux = "latest"
+deno = "latest"
+fzf = "latest"
+gh = "latest"
+ghq = "latest"
+
+
