@@ -13,5 +13,5 @@ deno = "latest"
 fzf = "latest"
 gh = "latest"
 ghq = "latest"
-
-
+gcloud = "latest"
+jq = "latest"

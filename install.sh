@@ -29,6 +29,7 @@ install_mise
 ln -snfv $(pwd)/.config/mise $HOME/.config/mise
 ln -snfv $(pwd)/.config/sheldon $HOME/.config/sheldon
 ln -snfv $(pwd)/.zshrc $HOME/.zshrc
+ln -snfv $(pwd)/.config/zsh $HOME/.config/zsh
 ln -snfv $(pwd)/.ripgreprc $HOME/.ripgreprc
 
 mise install
