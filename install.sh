@@ -31,6 +31,7 @@ ln -snfv $(pwd)/.config/sheldon $HOME/.config/sheldon
 ln -snfv $(pwd)/.zshrc $HOME/.zshrc
 ln -snfv $(pwd)/.config/zsh $HOME/.config/zsh
 ln -snfv $(pwd)/.ripgreprc $HOME/.ripgreprc
+ln -snfv $(pwd)/.config/systemd $HOME/.config/systemd
 
 mise install
 

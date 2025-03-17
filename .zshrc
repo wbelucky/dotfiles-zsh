@@ -52,4 +52,5 @@ for function in "$ZSH_CONFIG/functions"/*; do
 done
 
 export ABBR_SET_EXPANSION_CURSOR=1
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
