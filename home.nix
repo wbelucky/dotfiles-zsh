@@ -87,6 +87,14 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.ripgrep = {
+    enabled = true;
+    arguments = [
+      "--engine=auto"
+      "--hidden"
+      "--glob=!.git/"
+    ];
+  };
   programs.wezterm = {
     enable = true;
     extraConfig = builtins.readFile ../wezterm/wezterm.lua;
