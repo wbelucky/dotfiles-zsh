@@ -58,6 +58,8 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
+    ".markdownlinrc".source = .markdownlintrc;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

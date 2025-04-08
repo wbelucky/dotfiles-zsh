@@ -1,0 +1,11 @@
+{
+  "default": true,
+  "MD007": {
+    "indent": 4
+  },
+  "MD013": {
+    "code_blocks": false
+  },
+  // disable no-bare-urls
+  "MD034": false
+}
