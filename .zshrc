@@ -35,7 +35,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ZSH_CONFIG="$HOME/.config/zsh"
 
-eval "$($HOME/.local/bin/mise activate zsh)"
+# eval "$($HOME/.local/bin/mise activate zsh)"
 eval "$(sheldon source)"
 eval "$(starship init zsh)"
 
@@ -50,7 +50,9 @@ alias egrep='egrep --color=auto'
 for function in "$ZSH_CONFIG/functions"/*; do
   source $function
 done
+source "$ZSH_CONFIG/abbr.zsh"
 
 export ABBR_SET_EXPANSION_CURSOR=1
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+. $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

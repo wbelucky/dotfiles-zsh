@@ -58,7 +58,12 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".markdownlinrc".source = .markdownlintrc;
+    ".markdownlinrc".source = ./.markdownlintrc;
+    ".config/sheldon".source = ./.config/sheldon;
+    ".config/zsh".source = ./.config/zsh;
+    ".bin".source = ./.bin;
+    ".zshrc".source = ./.zshrc;
+    # ".config/systemd/user/ssh-agent.service".source = ./.config/systemd/user/ssh-agent.service;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

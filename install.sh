@@ -14,11 +14,6 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 # TODO: link config files /w home-manager
 
-ln -snfv $(pwd)/.config/sheldon $HOME/.config/sheldon
-ln -snfv $(pwd)/.zshrc $HOME/.zshrc
-ln -snfv $(pwd)/.config/zsh $HOME/.config/zsh
-ln -snfv $(pwd)/.ripgreprc $HOME/.ripgreprc
-ln -snfv $(pwd)/.config/systemd $HOME/.config/systemd
 ln -snfv $(pwd)/.gitconfig $HOME/.gitconfig
 
 popd

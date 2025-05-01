@@ -10,7 +10,9 @@ devcontainer exec --workspace-folder . zsh
 
 nix
 
-```
-sudo su
-nix profile install .#dotfiles-zsh
+```sh
+nix run home-manager/master -- switch --flake . -b backup
+# sudo su
+
+# nix profile install .#dotfiles-zsh
 ```

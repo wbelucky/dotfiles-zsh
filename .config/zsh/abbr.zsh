@@ -1,1 +1,12 @@
-abbr -S gs="git status"
+abbr --quiet -S gs="git status"
+abbr --quiet -S ga='git add'
+abbr --quiet -S gap='git add -p'
+abbr --quiet -S d='docker'
+abbr --quiet -S gc='git commit -m "%"'
+abbr --quiet -S gcm='git commit -m "%"'
+abbr --quiet -S gl='git log'
+abbr --quiet -S gd='git diff'
+abbr --quiet -S gdc='git diff --cached'
+abbr --quiet -S gp='git push origin (git rev-parse --abbrev-ref HEAD)'
+abbr --quiet -S gpl='git pull origin (git rev-parse --abbrev-ref HEAD)'
+abbr --quiet -S gsw='git switch'
