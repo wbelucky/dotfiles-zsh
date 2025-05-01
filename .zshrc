@@ -53,6 +53,5 @@ done
 source "$ZSH_CONFIG/abbr.zsh"
 
 export ABBR_SET_EXPANSION_CURSOR=1
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

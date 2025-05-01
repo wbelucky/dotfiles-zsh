@@ -34,12 +34,14 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    alacritty
     deno
     fd
     fzf
     gh
     ghq
     jq
+    keychain
     neovim
     nodejs_23
     ripgrep
@@ -47,7 +49,6 @@
     starship
     tmux
     zsh
-    alacritty
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
