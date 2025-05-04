@@ -45,6 +45,7 @@
     keychain
     neovim
     nodejs_23
+    nodePackages.pnpm
     ripgrep
     sheldon
     starship

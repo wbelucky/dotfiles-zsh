@@ -55,3 +55,9 @@ source "$ZSH_CONFIG/abbr.zsh"
 export ABBR_SET_EXPANSION_CURSOR=1
 
 . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
