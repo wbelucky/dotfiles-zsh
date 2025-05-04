@@ -35,6 +35,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     alacritty
+    curl
     deno
     fd
     fzf
