@@ -11,7 +11,7 @@ devcontainer exec --workspace-folder . zsh
 nix
 
 ```sh
-nix run home-manager/master -- switch --flake . -b backup
+nix run home-manager/master -- switch --flake .#opteyo -b backup
 # sudo su
 
 # nix profile install .#dotfiles-zsh
