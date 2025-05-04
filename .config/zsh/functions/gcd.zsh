@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 function gcd() {
-	local dist=$(ghq list | fzf -q "$1")
+	local dist=$(ghq root)/$(ghq list | fzf -q "$1")
 	if [[ -n "$dist" ]]; then
-		cd "$GHQ_ROOT/$dist"
+		cd "$dist"
 		tmux rename-window "$(basename "$(pwd)")"
 		return 0
 	fi
