@@ -1,0 +1,6 @@
+{
+  // "model": "o4-mini", // Default model
+  "provider": "gemini", // Default provider for ymichael/open-codex
+  "approvalMode": "suggest", // or auto-edit, full-auto
+  "fullAutoErrorMode": "ask-user" // or ignore-and-continue
+}
