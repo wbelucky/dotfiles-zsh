@@ -1,3 +1,6 @@
 #!/bin/bash
-BIG_MODEL=gemini-2.5-pro-exp-03-25 SMALL_MODEL=gemini-2.0-flash uv run uvicorn server:app --host 127.0.0.1 --port 8082
+set -eu
 
+pushd $(ghq root)/github.com/1rgs/claude-code-proxy
+BIG_MODEL=gemini-2.5-pro-exp-03-25 SMALL_MODEL=gemini-2.0-flash uv run uvicorn server:app --host 127.0.0.1 --port 8082
+pushd
