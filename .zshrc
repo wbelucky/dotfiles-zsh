@@ -50,7 +50,7 @@ alias egrep='egrep --color=auto'
 for function in "$ZSH_CONFIG/functions"/*; do
   source $function
 done
-source "$ZSH_CONFIG/abbr.zsh"
+# source "$ZSH_CONFIG/abbr.zsh"
 
 export ABBR_SET_EXPANSION_CURSOR=1
 

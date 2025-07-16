@@ -25,7 +25,17 @@
 
             # Specify your home configuration modules here, for example,
             # the path to your home.nix.
-            modules = [ ./hosts/default.nix ];
+            modules = [ 
+              ./modules
+              ({
+                programs.git = {
+                  userName = "wbelucky";
+                  userEmail = "39439193+WBelucky@users.noreply.github.com";
+                };
+                home.username = "wbiraki";
+                home.homeDirectory = "/home/wbiraki";
+              })
+            ];
 
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix

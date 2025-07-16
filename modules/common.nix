@@ -1,16 +1,6 @@
 { config, pkgs, extraSpecialArgs, ... } @ args:
 
-let
-  username = args.username or "opteyo";
-  homeDirectory = args.homeDirectory or "/home/opteyo";
-  gitUserName = args.gitUserName or "wbelucky";
-  gitUserEmail = args.gitUserEmail or "39439193+WBelucky@users.noreply.github.com";
-in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = username;
-  home.homeDirectory = homeDirectory;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -189,8 +179,6 @@ in
 
   programs.git = {
     enable = true;
-    userName = gitUserName;
-    userEmail = gitUserEmail;
     extraConfig = {
       core = {
         editor = "nvim";
@@ -198,7 +186,7 @@ in
       };
       color.ui = "true";
       url."ssh://git@github.com/".insteadOf = "https://github.com/";
-      github.user = gitUserName;
+      github.user = config.programs.git.userName;
       difftool.nvimdiff = {
         cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
         path = "";
