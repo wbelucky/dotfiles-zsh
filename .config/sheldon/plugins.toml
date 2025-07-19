@@ -26,22 +26,25 @@ zvm_bindkey viins '^j' autosuggest-accept
 # 
 # zvm_define_widget my_space_completion
 # zvm_bindkey viins ' '  my_space_completion
-zvm_bindkey viins ' ' abbr-expand-and-insert
+# zvm_bindkey viins ' ' abbr-expand-and-insert
 """
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+proto = "ssh"
 use = ["{{ name }}.zsh"]
 [plugins.zsh-autosuggestions.hooks]
 pre = """
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 """
 
-[plugins.zsh-abbr]
-github = "olets/zsh-abbr"
+# [plugins.zsh-abbr]
+# github = "olets/zsh-abbr"
+# proto = "https"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+proto = "ssh"
 # For example:
 #
 # [plugins.base16]
