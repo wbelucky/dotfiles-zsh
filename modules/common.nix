@@ -1,4 +1,4 @@
-{ config, pkgs, extraSpecialArgs, ... } @ args:
+{ lib, config, pkgs, extraSpecialArgs, ... } @ args:
 
 {
 
@@ -33,8 +33,10 @@
     # alacritty
     curl
     deno
+    docker
     fd
     fzf
+    gcc # for luasnip
     gh
     ghq
     go
@@ -47,6 +49,7 @@
     sheldon
     starship
     tmux
+    zk
     zsh
   ];
 
@@ -179,6 +182,8 @@
 
   programs.git = {
     enable = true;
+    userName = lib.mkDefault "wbelucky";
+    userEmail = lib.mkDefault "39439193+WBelucky@users.noreply.github.com";
     extraConfig = {
       core = {
         editor = "nvim";

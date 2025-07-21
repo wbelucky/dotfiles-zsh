@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of opteyo";
+  description = "Home Manager configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -20,25 +20,24 @@
         formatter = pkgs.nixfmt-rfc-style;
         legacyPackages = {
           inherit (pkgs) home-manager;
-          homeConfigurations."opteyo" = home-manager.lib.homeManagerConfiguration {
+          homeConfigurations = {
+
+            "ub-pm" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
 
-            # Specify your home configuration modules here, for example,
-            # the path to your home.nix.
             modules = [ 
               ./modules
               ({
-                programs.git = {
-                  userName = "wbelucky";
-                  userEmail = "39439193+WBelucky@users.noreply.github.com";
-                };
-                home.username = "wbiraki";
-                home.homeDirectory = "/home/wbiraki";
+                  # 
+                  # programs.git = {
+                  #   userName = "wbelucky";
+                  #   userEmail = "39439193+WBelucky@users.noreply.github.com";
+                  # };
+                home.username = "wbelucky";
+                home.homeDirectory = "/home/wbelucky";
               })
             ];
-
-            # Optionally use extraSpecialArgs
-            # to pass through arguments to home.nix
+          };
           };
         };
       }
