@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  extraSpecialArgs,
   ...
 }@args:
 
@@ -24,7 +23,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -57,13 +56,14 @@
     (builtins.trace ''neovim ${neovim}'' neovim)
     nodejs_24
     nodePackages.pnpm
+    pandoc
     ripgrep
     sheldon
     starship
     tmux
-    zk
+    uv
     zsh
-  ];
+  ]) ++ ([args.pkgs-zk-14-2.zk]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -106,7 +106,7 @@
     ];
     sessionVariables = {
       EDITOR = "nvim";
-      ZK_NOTEBOOK_DIR = "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
+      ZK_NOTEBOOK_DIR = lib.mkDefault "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
     };
   };
 
