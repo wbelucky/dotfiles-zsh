@@ -1,6 +1,17 @@
-{ lib, config, pkgs, extraSpecialArgs, ... } @ args:
+{
+  lib,
+  config,
+  pkgs,
+  extraSpecialArgs,
+  ...
+}@args:
 
 {
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -31,6 +42,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     # alacritty
+    claude-code
     curl
     deno
     docker
@@ -43,7 +55,7 @@
     jq
     keychain
     (builtins.trace ''neovim ${neovim}'' neovim)
-    nodejs_23
+    nodejs_24
     nodePackages.pnpm
     ripgrep
     sheldon
@@ -88,7 +100,10 @@
   #  /etc/profiles/per-user/opteyo/etc/profile.d/hm-session-vars.sh
   #
   home = {
-    sessionPath = [ "$HOME/.local/bin/" "$HOME/.bin" ];
+    sessionPath = [
+      "$HOME/.local/bin/"
+      "$HOME/.bin"
+    ];
     sessionVariables = {
       EDITOR = "nvim";
       ZK_NOTEBOOK_DIR = "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
@@ -96,9 +111,10 @@
   };
 
   programs.keychain = {
+    # TODO: enabled = true
     enable = false;
-    agents = [ "ssh" ] ;
-    keys = [ "id_ed25519" ];
+    agents = [ "ssh" ];
+    keys = lib.mkDefault [ "id_ed25519" ];
   };
 
   # Let Home Manager install and manage itself.
