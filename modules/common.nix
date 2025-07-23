@@ -77,6 +77,7 @@
     ".config/sheldon".source = ../.config/sheldon;
     ".config/zsh".source = ../.config/zsh;
     ".bin".source = ../.bin;
+    ".claude".source = ../.claude;
     ".zshrc".source = ../.zshrc;
     # ".codex".source = ../.codex;
     # ".config/systemd/user/ssh-agent.service".source = ./.config/systemd/user/ssh-agent.service;
