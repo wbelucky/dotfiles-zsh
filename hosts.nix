@@ -9,7 +9,7 @@
     home.homeDirectory = "/home/wbelucky";
   };
   "DESKTOP-8VQ0RA4" = {lib, pkgs, config, ...}@args: {
-    # home.packages = config.home.packages ++ (with pkgs; [drawio]);
+    # home.packages = (with pkgs; [drawio]);
     home.username = "biraki";
     home.homeDirectory = "/home/biraki";
   };
