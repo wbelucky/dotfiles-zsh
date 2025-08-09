@@ -13,4 +13,9 @@
     home.username = "biraki";
     home.homeDirectory = "/home/biraki";
   };
+  "penguin" = {lib, pkgs, config, ...}@args: {
+    # home.packages = (with pkgs; [drawio]);
+    home.username = "opteyo";
+    home.homeDirectory = "/home/opteyo";
+  };
 }
