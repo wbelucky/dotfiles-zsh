@@ -54,19 +54,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-zk-14-2": {
+    "nixpkgs-zk": {
       "locked": {
-        "lastModified": 1739354398,
-        "narHash": "sha256-MRS14Nu8kKX12YlvhJD8WMQMpLtdroTgmoeHh15offY=",
+        "lastModified": 1742356653,
+        "narHash": "sha256-2IhkpejkP2OLBF1y4WFW48I/KY+KKmft1FU0Te5O6wM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7309a1da2598f7e791cd7fea932b30f88492cdef",
+        "rev": "920756a4ef5bb5e9f5d17599724b29f0ea6f4a9b",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7309a1da2598f7e791cd7fea932b30f88492cdef",
+        "rev": "920756a4ef5bb5e9f5d17599724b29f0ea6f4a9b",
         "type": "github"
       }
     },
@@ -75,7 +75,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-zk-14-2": "nixpkgs-zk-14-2"
+        "nixpkgs-zk": "nixpkgs-zk"
       }
     },
     "systems": {

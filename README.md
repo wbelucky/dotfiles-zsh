@@ -30,3 +30,10 @@ nix run home-manager/master -- switch --flake .#opteyo -b backup
 
 # nix profile install .#dotfiles-zsh
 ```
+
+## debug
+
+```
+(builtins.trace ''neovim ${neovim}'' neovim)
+```
+

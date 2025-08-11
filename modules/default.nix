@@ -2,6 +2,6 @@
   imports = [
     ./common.nix
     ./wsl.nix
-    ./zsh.nix
+    ./fish.nix
   ];
 }
