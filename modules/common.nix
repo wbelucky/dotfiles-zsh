@@ -7,10 +7,11 @@
 
 {
   nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "claude-code"
-    ];
+    pkg: true;
+    # pkg:
+    # builtins.elem (lib.getName pkg) [
+    #   "claude-code"
+    # ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -53,16 +54,13 @@
     go
     jq
     keychain
-    (builtins.trace ''neovim ${neovim}'' neovim)
+    neovim
     nodejs_24
     nodePackages.pnpm
     pandoc
     ripgrep
-    sheldon
-    starship
     tmux
     uv
-    zsh
   ]) ++ ([args.pkgs-zk.zk]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -74,8 +72,6 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     ".markdownlinrc".source = ../.markdownlintrc;
-    ".config/sheldon".source = ../.config/sheldon;
-    ".config/zsh".source = ../.config/zsh;
     ".bin".source = ../.bin;
     ".claude".source = ../.claude;
     # ".codex".source = ../.codex;
@@ -107,13 +103,13 @@
     sessionVariables = {
       EDITOR = "nvim";
       ZK_NOTEBOOK_DIR = lib.mkDefault "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
+      GHQ_ROOT = "$HOME/ghq";
     };
   };
 
   programs.keychain = {
-    # TODO: enabled = true
-    enable = false;
-    agents = [ "ssh" ];
+    enable = true;
+    # agents = [ "ssh" ];
     keys = lib.mkDefault [ "id_ed25519" ];
   };
 
@@ -149,7 +145,8 @@
 
       set -g status-fg white
 
-      set-option -g default-shell ${pkgs.zsh}/bin/zsh
+      # TODO:
+      # set-option -g default-shell ${pkgs.zsh}/bin/zsh
 
       unbind C-b
       set-option -g prefix M-d

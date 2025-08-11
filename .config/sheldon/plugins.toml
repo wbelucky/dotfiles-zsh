@@ -20,12 +20,12 @@ github = "jeffreytse/zsh-vi-mode"
 post = """
 zvm_bindkey viins '^j' autosuggest-accept
 
-# function my_space_completion() {
-#   abbr-expand-and-insert && _zsh_autosuggest_fetch_suggestion
-# }
-# 
-# zvm_define_widget my_space_completion
-# zvm_bindkey viins ' '  my_space_completion
+function my_space_completion() {
+  abbr-expand-and-insert && _zsh_autosuggest_fetch_suggestion
+}
+
+zvm_define_widget my_space_completion
+zvm_bindkey viins ' '  my_space_completion
 # zvm_bindkey viins ' ' abbr-expand-and-insert
 """
 

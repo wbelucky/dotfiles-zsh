@@ -55,8 +55,20 @@ esac
   '';
 in
 {
+  home.packages = (with pkgs; [
+    sheldon
+    starship
+    zsh
+  ]);
+  home.file = {
+    ".config/sheldon".source = ../.config/sheldon;
+    ".config/zsh".source = ../.config/zsh;
+  };
+  programs.tmux.extraConfig = ''
+  set-option -g default-shell ${pkgs.zsh}/bin/zsh
+  '';
   programs.zsh = {
-    enable = true;
+    enable = false;
     shellAliases = {
       vim="nvim";
       ls="ls --color=auto";
@@ -70,5 +82,24 @@ in
     completionInit ="autoload -Uz compinit && compinit";
     initContent = 
       lib.mkMerge [ zshConfigEarlyInit zshConfig zshConfigFinal ];
+    zsh-abbr = {
+      enable = true;
+      abbreviations = {
+        gs="git status";
+        ga="git add";
+        gap="git add -p";
+        gc="git commit -m '%'";
+        gcm="git commit -m '%'";
+        gl="git log";
+        gd="git diff";
+        gdc="git diff --cached";
+        gp="git push origin $(git rev-parse --abbrev-ref HEAD)";
+        gpl="git pull origin $(git rev-parse --abbrev-ref HEAD)";
+        gsw="git switch";
+        d="docker";
+        dc="docker compose";
+        dps="docker ps";
+      };
+    };
   };
 }
