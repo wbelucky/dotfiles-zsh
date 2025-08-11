@@ -124,7 +124,17 @@
         end
         echo -n (set_color green)" "
       '';
+      _prompt_user = ''
+      test $SSH_TTY
+      and printf (set_color red)$USER(set_color brwhite)'@'(set_color yellow)(prompt_hostname)' '
 
+      test $USER = 'root'
+      and echo (set_color red)"#"
+      '';
+      fish_right_prompt = ''
+      _prompt_user
+      echo (set_color green)(__fish_git_prompt " %s")
+      '';
     };
   };
 }
