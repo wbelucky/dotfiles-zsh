@@ -99,7 +99,7 @@
         end
         return 1
       '';
-      fish_user_key_dindings = ''
+      fish_user_key_bindings = ''
         fish_vi_key_bindings
       '';
       _prompt_dir = ''
@@ -115,7 +115,7 @@
             echo -n (prompt_pwd)
         end
       '';
-      _fish_prompt = ''
+      fish_prompt = ''
         _prompt_dir
         echo -n " "
         set -l last_status $status
