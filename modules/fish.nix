@@ -122,7 +122,7 @@
         if [ $last_status -gt 0 ]
           echo -n (set_color red)"[$last_status] "
         end
-        echo -n (set_color green)" "
+        echo -n (set_color green)"  "
       '';
       _prompt_user = ''
       test $SSH_TTY
