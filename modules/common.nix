@@ -55,12 +55,13 @@
     jq
     keychain
     neovim
-    nodejs_24
     nodePackages.pnpm
+    nodejs_24
     pandoc
     ripgrep
     tmux
     uv
+    yq-go
   ]) ++ ([args.pkgs-zk.zk]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -103,6 +104,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       ZK_NOTEBOOK_DIR = lib.mkDefault "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
+      ZK_SHELL = "/bin/bash";
       GHQ_ROOT = "$HOME/ghq";
     };
   };
