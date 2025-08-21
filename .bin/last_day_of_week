@@ -1,4 +1,4 @@
 #!/bin/bash
 day_of_week=${1:-'Wednesday'}
-fmt=${2:-'+%Y-%m-%d'}
+fmt=${2:-'+%y-%m-%d'}
 if [ $(date +%A) = ${day_of_week} ]; then date $fmt; else date -d "last ${day_of_week}" $fmt; fi
