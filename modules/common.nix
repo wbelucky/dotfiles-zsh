@@ -60,6 +60,7 @@
     pandoc
     ripgrep
     tmux
+    unzip
     uv
     yq-go
   ]) ++ ([args.pkgs-zk.zk]);
