@@ -7,6 +7,7 @@
     # };
     home.username = "wbelucky";
     home.homeDirectory = "/home/wbelucky";
+    programs.keychain.enable = false;
   };
   "DESKTOP-8VQ0RA4" = {lib, pkgs, config, ...}@args: {
     # home.packages = (with pkgs; [drawio]);

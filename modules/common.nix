@@ -110,7 +110,7 @@
   };
 
   programs.keychain = {
-    enable = true;
+    enable = lib.mkDefault true;
     # agents = [ "ssh" ];
     keys = lib.mkDefault [ "id_ed25519" ];
   };
