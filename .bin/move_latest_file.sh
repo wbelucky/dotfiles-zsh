@@ -1,10 +1,10 @@
 #!/bin/bash
 
-TARGET_DIR="$1"
-SOURCE_NAME="$2"
+TARGET_DIR="${2:-.}"
+SOURCE_NAME="$1"
 
 if [ -z "$TARGET_DIR" ]; then
-    echo "Usage: $0 <target_directory> [source_name]" >&2
+    echo "Usage: $0 [source_dir_name_from_win_home] <target_directory> " >&2
     echo "  source_name defaults to 'Pictures/Screenshots'" >&2
     exit 1
 fi

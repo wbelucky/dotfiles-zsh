@@ -45,7 +45,6 @@
     claude-code
     curl
     deno
-    docker
     fd
     fzf
     gcc # for luasnip
@@ -62,6 +61,7 @@
     tmux
     uv
     yq-go
+    gemini-cli
   ]) ++ ([args.pkgs-zk.zk]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

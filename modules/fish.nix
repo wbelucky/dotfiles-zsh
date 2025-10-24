@@ -88,6 +88,9 @@
 
         kc="kubectl";
         tf="terraform";
+	# TODO: python3-tableulateとpython3-pandasをnixに含める
+	# 何なら別モジュールに切り出す。
+	wb-yaml2table=''wl-paste | python3 -c 'import yaml, sys, pandas as pd, tabulate; d = yaml.load(sys.stdin, Loader=yaml.SafeLoader); df = pd.DataFrame(d["body"])[[x["key"] for x in d["header"]]].rename(columns={i["key"]: i["label"] for i in d["header"]}); print(tabulate.tabulate(df.to_dict(orient="records"), headers="keys", tablefmt="github"))' | wl-copy''
     };
     functions = {
       ghq_change_directory = ''
