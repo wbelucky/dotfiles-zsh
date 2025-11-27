@@ -53,6 +53,7 @@
     go
     jq
     keychain
+    mdq
     neovim
     nodePackages.pnpm
     nodejs_24

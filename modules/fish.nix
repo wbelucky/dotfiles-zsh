@@ -90,7 +90,9 @@
         tf="terraform";
 	# TODO: python3-tableulateとpython3-pandasをnixに含める
 	# 何なら別モジュールに切り出す。
-	wb-yaml2table=''wl-paste | python3 -c 'import yaml, sys, pandas as pd, tabulate; d = yaml.load(sys.stdin, Loader=yaml.SafeLoader); df = pd.DataFrame(d["body"])[[x["key"] for x in d["header"]]].rename(columns={i["key"]: i["label"] for i in d["header"]}); print(tabulate.tabulate(df.to_dict(orient="records"), headers="keys", tablefmt="github"))' | wl-copy''
+	wb-yaml2table=''wl-paste | python3 -c 'import yaml, sys, pandas as pd, tabulate; d = yaml.load(sys.stdin, Loader=yaml.SafeLoader); df = pd.DataFrame(d["body"])[[x["key"] for x in d["header"]]].rename(columns={i["key"]: i["label"] for i in d["header"]}); print(tabulate.tabulate(df.to_dict(orient="records"), headers="keys", tablefmt="github"))' | wl-copy'';
+	yq-map=''yq '.' -o=j -I=0 | while read -l j; echo $j end |  yq eval-all -p=json '[.] | .[] as $i ireduce(0; . + $i.size * $i.memoryMb)' ''; # use mapfile in bash
+	yq-tsv=''yq -ot '.[] |= ( (.. | select(kind == "scalar")) as $i ireduce({}; . + { ($i | path | .[1:] | join(".")) : $i } ))' '';
     };
     functions = {
       ghq_change_directory = ''

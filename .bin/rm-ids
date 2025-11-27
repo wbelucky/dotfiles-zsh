@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# スクリプトの使用方法を表示する関数
+usage() {
+  echo "Usage: $0 <resource_name>"
+  echo "Example: $0 trackers"
+  echo "Example: $0 projects"
+  echo "Example: $0 issue_statuses"
+  exit 1
+}
+
+# 引数が指定されているか確認
+if [ -z "$1" ]; then
+  usage
+fi
+
+RESOURCE="$1" # 第1引数をリソース名として取得
+
+# RedmineのURLとAPIキーを設定してください
+# 環境変数として設定することを推奨します
+# export REDMINE_URL="https://your-redmine-url.com"
+# export REDMINE_API_KEY="YOUR_API_KEY"
+
+# 環境変数が設定されているか確認
+if [ -z "$REDMINE_URL" ]; then
+  echo "Error: REDMINE_URL environment variable is not set."
+  echo "Please set it, e.g.: export REDMINE_URL=\"https://your-redmine-url.com\""
+  exit 1
+fi
+
+if [ -z "$REDMINE_API_KEY" ]; then
+  echo "Error: REDMINE_API_KEY environment variable is not set."
+  echo "Please set it, e.g.: export REDMINE_API_KEY=\"YOUR_API_KEY\""
+  exit 1
+fi
+
+API_ENDPOINT="${REDMINE_URL}/${RESOURCE}.json"
+
+curl -sS -X GET -H "X-Redmine-API-Key:$REDMINE_API_KEY" "$API_ENDPOINT" | jq -r ".$(basename ${RESOURCE})[] | "'"\(.id) \(.name)"' | fzf
+
