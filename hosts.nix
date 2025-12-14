@@ -1,10 +1,11 @@
 {
-  "ub-pm" = {
+  "ub-pm" = {lib, pkgs, config, ...}@args: {
     #
     # programs.git = {
     #   userName = "wbelucky";
     #   userEmail = "39439193+WBelucky@users.noreply.github.com";
     # };
+    home.packages = (with pkgs; [spotdl]);
     home.username = "wbelucky";
     home.homeDirectory = "/home/wbelucky";
     programs.keychain.enable = false;

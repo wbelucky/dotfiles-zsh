@@ -45,7 +45,6 @@
     claude-code
     curl
     deno
-    docker
     fd
     fzf
     gcc # for luasnip
