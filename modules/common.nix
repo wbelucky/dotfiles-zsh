@@ -130,6 +130,11 @@
     enable = true;
     extraConfig = ''
       set -s set-clipboard on
+
+      # add 'c' to tmux-clipboard option for osc52 on xterm.js
+      # https://github.com/tmux/tmux/issues/4081#issuecomment-2307713596
+      set-option -ga terminal-overrides ",xterm-256color:Ms=\e]52;c%p1%.0s;%p2%s\a\e\\"
+
       set-option -g focus-events on
       # キーストロークのディレイを減らす
       set-option -sg escape-time 1
