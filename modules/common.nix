@@ -61,6 +61,7 @@
     ripgrep
     tmux
     uv
+    xq-xml
     yq-go
     gemini-cli
   ]) ++ ([args.pkgs-zk.zk]);
@@ -73,7 +74,7 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".markdownlinrc".source = ../.markdownlintrc;
+    ".markdownlintrc".source = ../.markdownlintrc;
     ".bin".source = ../.bin;
     ".claude".source = ../.claude;
     # ".codex".source = ../.codex;
@@ -101,6 +102,7 @@
     sessionPath = [
       "$HOME/.local/bin/"
       "$HOME/.bin"
+      "$HOME/.cargo/bin/"
     ];
     sessionVariables = {
       EDITOR = "nvim";

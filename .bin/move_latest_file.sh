@@ -54,7 +54,7 @@ if [ ! -f "$SOURCE_PATH" ]; then
     exit 1
 fi
 
-mv "$SOURCE_PATH" "$TARGET_PATH"
+mv -n "$SOURCE_PATH" "$TARGET_PATH"
 
 if [ $? -ne 0 ]; then
     echo "Error: Failed to move file from $SOURCE_PATH to $TARGET_PATH" >&2
