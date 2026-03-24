@@ -74,7 +74,7 @@
 
     ".markdownlinrc".source = ../.markdownlintrc;
     ".bin".source = ../.bin;
-    ".claude".source = ../.claude;
+    # ".claude".source = ../.claude;
     # ".codex".source = ../.codex;
     # ".config/systemd/user/ssh-agent.service".source = ./.config/systemd/user/ssh-agent.service;
 
