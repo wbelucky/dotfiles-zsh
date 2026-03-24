@@ -74,7 +74,7 @@
 
     ".markdownlinrc".source = ../.markdownlintrc;
     ".bin".source = ../.bin;
-    # ".claude".source = ../.claude;
+    ".claude/settings.local.json".source = ../claude/settings.local.json;
     # ".codex".source = ../.codex;
     # ".config/systemd/user/ssh-agent.service".source = ./.config/systemd/user/ssh-agent.service;
 
@@ -202,16 +202,18 @@
 
   programs.git = {
     enable = true;
-    userName = lib.mkDefault "wbelucky";
-    userEmail = lib.mkDefault "39439193+WBelucky@users.noreply.github.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = lib.mkDefault "wbelucky";
+        email = lib.mkDefault "39439193+WBelucky@users.noreply.github.com";
+      };
       core = {
         editor = "nvim";
         pager = "LESSCHARSET=utf-8 less";
       };
       color.ui = "true";
       url."ssh://git@github.com/".insteadOf = "https://github.com/";
-      github.user = config.programs.git.userName;
+      github.user = lib.mkDefault "wbelucky";
       difftool.nvimdiff = {
         cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
         path = "";

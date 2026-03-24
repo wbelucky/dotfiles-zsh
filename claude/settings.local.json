@@ -3,7 +3,7 @@
     "allow": [
       "Bash(npm run lint)",
       "Bash(npm run test:*)",
-      "Read(~/.zshrc)"
+      "Bash(rg:*)",
     ],
     "deny": [
       "Bash(curl:*)",
@@ -25,7 +25,5 @@
       "Write(**/secrets/**)"
     ],
     "defaultMode": "plan"
-  },
-  "env": {
   }
 }
