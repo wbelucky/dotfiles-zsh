@@ -5,6 +5,11 @@
   ...
 }@args:
 
+let
+  tsel = pkgs.writeShellScriptBin "tsel" ''
+    target=$(tmux list-panes -a -F '#{pane_title} #{session_name}:#{window_index}.#{pane_index}' | ${pkgs.fzf}/bin/fzf | awk '{print $NF}') && tmux switch-client -t "''${target%.*}" && tmux select-window -t "''${target%.*}" && tmux select-pane -t "$target"
+  '';
+in
 {
   nixpkgs.config.allowUnfreePredicate =
     pkg: true;
@@ -41,6 +46,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    tsel
     # alacritty
     claude-code
     curl
@@ -106,6 +112,8 @@
       ZK_NOTEBOOK_DIR = lib.mkDefault "$HOME/ghq/github.com/wbelucky/diary-wb-ls/blog";
       ZK_SHELL = "/bin/bash";
       GHQ_ROOT = "$HOME/ghq";
+      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
+      PNPM_HOME = "$HOME/.local/share/pnpm";
     };
   };
 
@@ -197,6 +205,9 @@
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
+
+      bind t display-popup -E '${tsel}/bin/tsel'
+
     '';
   };
 

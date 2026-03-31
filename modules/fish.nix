@@ -32,6 +32,13 @@
     enable = true;
     shellInit = ''
     if test -e $HOME/.nix-profile/etc/profile.d/nix.fish; . $HOME/.nix-profile/etc/profile.d/nix.fish; end
+    fish_add_path $HOME/.npm-global/bin
+    fish_add_path $HOME/.local/share/pnpm
+
+    # Load private configurations (API keys, etc.)
+    if test -f $HOME/.config/fish/private.fish
+        source $HOME/.config/fish/private.fish
+    end
     '';
     interactiveShellInit = ''
     set fish_greeting ""
