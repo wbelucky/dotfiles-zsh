@@ -1,0 +1,34 @@
+#!/bin/bash
+# Called by Claude Code PreToolUse hook (matched on TaskCreate).
+# Reads hook JSON from stdin, sets tmux window name and pane title
+# using the task subject from tool_input.
+
+# Bail out if not inside tmux
+if [ -z "$TMUX" ]; then
+  exit 0
+fi
+
+# Read JSON payload from stdin
+PAYLOAD=$(cat)
+
+TASK_SUBJECT=$(echo "$PAYLOAD" | jq -r '.tool_input.subject // empty')
+CWD=$(echo "$PAYLOAD" | jq -r '.cwd // empty')
+
+# Nothing to do without a subject
+if [ -z "$TASK_SUBJECT" ]; then
+  exit 0
+fi
+
+# Derive a short project name from cwd basename
+PROJECT_NAME=$(basename "${CWD:-$(pwd)}")
+
+# Truncate task subject to keep the label readable
+SUBJECT_SHORT="${TASK_SUBJECT:0:30}"
+
+LABEL="${PROJECT_NAME}:${SUBJECT_SHORT}"
+
+# Set tmux window name (automatic-rename off so it sticks)
+tmux rename-window "$LABEL"
+
+# Set tmux pane title
+printf '\033]2;%s\033\\' "claude:${LABEL}"

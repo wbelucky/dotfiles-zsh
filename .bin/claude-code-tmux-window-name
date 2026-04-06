@@ -1,0 +1,30 @@
+#!/bin/bash
+# Called by Claude Code SessionStart hook.
+# Reads hook JSON from stdin, sets tmux window name and pane title.
+
+# Bail out if not inside tmux
+if [ -z "$TMUX" ]; then
+  exit 0
+fi
+
+# Read JSON payload from stdin
+PAYLOAD=$(cat)
+
+SESSION_ID=$(echo "$PAYLOAD" | jq -r '.session_id // empty')
+CWD=$(echo "$PAYLOAD" | jq -r '.cwd // empty')
+
+# Derive a short project name from cwd basename
+PROJECT_NAME=$(basename "${CWD:-$(pwd)}")
+
+# Build a label: project name + short session ID
+SHORT_ID="${SESSION_ID:0:8}"
+LABEL="${PROJECT_NAME}"
+if [ -n "$SHORT_ID" ]; then
+  LABEL="${PROJECT_NAME}:${SHORT_ID}"
+fi
+
+# Set tmux window name (automatic-rename off so it sticks)
+tmux rename-window "$LABEL"
+
+# Set tmux pane title
+printf '\033]2;%s\033\\' "claude:${LABEL}"

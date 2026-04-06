@@ -48,7 +48,7 @@ in
     # '')
     tsel
     # alacritty
-    claude-code
+    # claude-code
     curl
     deno
     fd
